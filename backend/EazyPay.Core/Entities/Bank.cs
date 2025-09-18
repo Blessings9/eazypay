@@ -1,0 +1,7 @@
+namespace EazyPay.Core.Entities;
+
+public class Bank : BaseEntity
+{
+    public required string Name { get; set; }
+    public required string Email { get; set; }
+}
