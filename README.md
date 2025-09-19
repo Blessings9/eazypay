@@ -1,6 +1,5 @@
 # Introduction:
-The project comprises of two main directories - frontend and backend. The front end consists of a React SPA whilst the backend is a C# ASP.NET Core Web Api. The projects have been de-coupled in this way to allow for flexibility
-and also ease of development as both components are mostly independed of each other.
+The project comprises of two main directories - frontend and backend. The front end consists of a React SPA whilst the backend is a C# ASP.NET Core Web Api. The projects have been de-coupled in this way because their independence allows for more flexibility. That way we can make changes on the backend and frontend without affecting one or the other too much.
 
 ## Setup Instructions
 
