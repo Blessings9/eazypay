@@ -10,7 +10,7 @@ public static class Mapping
     {
         return new Payment()
         {
-            TimeOfPayment = DateTime.Now,
+            TimeOfPayment = DateTime.Now.ToString(),
             CardNumber = request.CardNumber,
             MonthOfExpiry = request.MonthOfExpiry,
             YearOfExpiry = request.YearOfExpiry,

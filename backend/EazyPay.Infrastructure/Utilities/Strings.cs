@@ -14,6 +14,6 @@ public static class Strings
 
     public static string Mask(this string value, char mask)
     {
-        return value[0..2] + new string(mask, value[2..^2].Length) + value[^2..];
+        return new string(mask, value[..^4].Length) + value[^4..];
     }
 }

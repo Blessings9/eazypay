@@ -2,7 +2,7 @@
 
 public class Payment : BaseEntity
 {
-    public required DateTime TimeOfPayment { get; set; }
+    public required string TimeOfPayment { get; set; }
     public required string CardNumber { get; set; }
     public required int MonthOfExpiry { get; set; }
     public required int YearOfExpiry { get; set; }
