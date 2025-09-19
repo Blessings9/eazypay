@@ -4,6 +4,9 @@ and also ease of development as both components are mostly independed of each ot
 
 ## Setup Instructions
 
+### Pre-requisites
+To successfully run the application. You will need to have dotnet 9 runtime and nodejs 20 installed on your machine.
+
 ### Build and run the C# ASP.NET Core Web API
 1. Navigate to the directory /backend
    
