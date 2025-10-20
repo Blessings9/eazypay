@@ -19,14 +19,6 @@ jobs:
         with:
           dotnet-version: '9.x'
 
-      - name: Restore dependencies
-        working-directory: backend
-        run: dotnet restore EazyPay.Api.sln
-
-      - name: Build
-        working-directory: backend
-        run: dotnet build EazyPay.Api.sln --configuration Release --no-restore
-
       - name: Publish
         working-directory: backend
         run: dotnet publish EazyPay.Api/EazyPay.Api.csproj --configuration Release --output ./publish
