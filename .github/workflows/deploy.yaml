@@ -20,19 +20,22 @@ jobs:
           dotnet-version: '9.x'
 
       - name: Restore dependencies
+        working-directory: backend
         run: dotnet restore EazyPay.Api.sln
 
       - name: Build
+        working-directory: backend
         run: dotnet build EazyPay.Api.sln --configuration Release --no-restore
 
       - name: Publish
+        working-directory: backend
         run: dotnet publish EazyPay.Api/EazyPay.Api.csproj --configuration Release --output ./publish
 
       - name: Upload backend artifacts
         uses: actions/upload-artifact@v4
         with:
           name: backend-publish
-          path: publish
+          path: backend/publish
 
   build-frontend:
     name: Build Frontend (React)
@@ -49,15 +52,15 @@ jobs:
           cache: 'npm'
 
       - name: Install dependencies
-        working-directory: client
+        working-directory: frontend
         run: npm ci
 
       - name: Build frontend
-        working-directory: client
+        working-directory: frontend
         run: npm run build
 
       - name: Upload frontend artifacts
         uses: actions/upload-artifact@v4
         with:
           name: frontend-build
-          path: client/build
+          path: frontend/build
