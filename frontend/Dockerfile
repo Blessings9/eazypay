@@ -1,8 +1,8 @@
-# Stage 1: Build React app
-FROM node:20-alpine AS build
+# Development Dockerfile for EazyPay frontend
+FROM node:20-alpine
 WORKDIR /app
 
-# Copy dependency files first
+# Copy dependency files
 COPY package*.json ./
 
 # Install dependencies
@@ -11,15 +11,8 @@ RUN npm ci
 # Copy all source files
 COPY . .
 
-# Build React app for production
-RUN npm run build
+# Expose the dev port (usually 5173 for Vite or 3000 for CRA)
+EXPOSE 5173
 
-# Verify build output exists (debug aid)
-RUN ls -lah /app/build
-
-# Stage 2: Serve using Nginx
-FROM nginx:alpine
-# Copy build output from previous stage
-COPY --from=build /app/build /usr/share/nginx/html
-EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
+# Run the development server
+CMD ["npm", "run", "dev"]

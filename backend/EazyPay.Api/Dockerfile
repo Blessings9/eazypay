@@ -1,18 +1,16 @@
-# Development Dockerfile for EazyPay frontend
-FROM node:20-alpine
-WORKDIR /app
+# Stage 1: Build and publish
+FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
+WORKDIR /src
 
-# Copy dependency files
-COPY package*.json ./
-
-# Install dependencies
-RUN npm ci
-
-# Copy all source files
+# Copy backend contents
 COPY . .
 
-# Expose the dev port (usually 5173 for Vite or 3000 for CRA)
-EXPOSE 5173
+# Restore and publish only the API project
+RUN dotnet restore EazyPay.sln
+RUN dotnet publish EazyPay.Api/EazyPay.Api.csproj -c Release -o /app/publish
 
-# Run the development server
-CMD ["npm", "run", "dev"]
+# Stage 2: Runtime
+FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS runtime
+WORKDIR /app
+COPY --from=build /app/publish .
+ENTRYPOINT ["dotnet", "EazyPay.Api.dll"]
