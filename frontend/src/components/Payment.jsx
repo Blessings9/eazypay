@@ -100,7 +100,7 @@ const Payment = () => {
 
         setSubmissionStatus('Processing ...');
 
-        const API_URL_PAYMENT = 'http://172.17.0.3:5221/api/eazypay/payment';
+        const API_URL_PAYMENT = 'http://172.17.0.1:5221/api/eazypay/payment';
 
         try {
 

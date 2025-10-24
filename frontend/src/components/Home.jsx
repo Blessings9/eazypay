@@ -23,7 +23,7 @@ const Home = () => {
 
         setSearchResults([]);
 
-        const API_URL = `http://172.17.0.3:5221/api/eazypay/payment?transactionId=${searchQuery}`;
+        const API_URL = `http://172.17.0.1:5221/api/eazypay/payment?transactionId=${searchQuery}`;
 
         try {
 
