@@ -78,5 +78,4 @@ jobs:
           push: true
           tags: ${{ steps.vars.outputs.tags }}
 
-      - name: Done
-        run: echo "✅ Backend image pushed: ${{ steps.vars.outputs.tags }}"
+   
