@@ -8,4 +8,12 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
+  server: {
+    allowedHosts: [
+      'eazypay.infrasensei.com',
+    ],
+    // optionally also specify host and port if you're proxying or running externally
+    host: '0.0.0.0',
+    port: 5173,
+  },
 })
