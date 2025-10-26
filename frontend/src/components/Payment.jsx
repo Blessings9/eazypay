@@ -100,7 +100,7 @@ const Payment = () => {
 
         setSubmissionStatus('Processing ...');
 
-        const API_URL_PAYMENT = 'http://eazypay-api-service:5001/api/eazypay/payment';
+        const API_URL_PAYMENT = 'https://eazyapi.infrasensei.com/api/eazypay/payment';
 
         try {
 
